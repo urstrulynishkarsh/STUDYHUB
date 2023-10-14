@@ -23,7 +23,7 @@ export const HomePage = () => {
     <div>
        
         {/* section 1  */}
-        <div className='relative flex flex-col mx-auto justify-center items-center text-white w-11/12'>
+        <div className='relative mt-16 flex flex-col mx-auto justify-center items-center text-white w-11/12'>
         <Fade bottom cascade duration={1500}>
             {/* <div className='green '></div> */}
         <Link to={"/signup"}>

@@ -7,7 +7,7 @@ import frameImage from '../../../assets/Images/frame.png'
 
 const Template=({title,desc1,desc2,image,formtype})=>{
   return (
-    <div className='bg-richblack-900'>
+    <div className='bg-richblack-900 mt-16'>
     <div className='w-11/12   flex max-w-[1160px] gap-[15rem] py-12 mx-auto gap-y-0 gap-x-15 flex-row'>
         <div className='w-11/12 max-w-[450px]'>
             <h1 className='lg:text-4xl xl:text-4xl md:text-3xl sm:text-4xl text-3xl text-richblack-5 font-semibold  leading-[2.375rem]'>{title}</h1>

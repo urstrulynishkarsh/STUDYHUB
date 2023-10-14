@@ -14,7 +14,7 @@ import ReviewSlider from '../components/common/ReviewSlider'
 export const AboutPage = () => {
   return (
     <div >
-    <div className='flex flex-col   max-w-maxContent text-white justify-center items-center mt-32 mx-auto w-11/12'>
+    <div className='flex flex-col    max-w-maxContent text-white justify-center items-center mt-48 mx-auto w-11/12'>
         {/* section 1 */}
             <h1 className='lg:text-4xl xl:text-4xl md:text-4xl sm:text-4xl text-xl font-semibold w-[60%] text-center '>
                 Driving Innovation in Online Education for a 

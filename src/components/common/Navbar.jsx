@@ -72,7 +72,7 @@ export const Navbar = () => {
     };
 
   return (
-    <div className='h-16 z-50   border-b-[1px] border-pink-100 sticky top-0  bg-black'>
+    <div className='h-16 z-50   border-b-[1px] border-pink-100 fixed w-full top-0  bg-black'>
          <div className="flex  py-3 max-w-maxContent items-center xl:justify-around lg:justify-around md:justify-around justify-between">
         {/* Logo */}
         <Link to="/">

@@ -20,14 +20,18 @@ const Dashboard = () => {
 
 
   return (
-    <div className='relative flex  bg-richblack-400'>
-        <Sidebar />
+    <div className='relative flex bg-richblack-400'>
+     
+   
+   {<Sidebar />}
+
         <div className=' bg-black w-11/12'>
-            <div className='mx-auto w-11/12 max-w-[1000px] py-10'>
+            <div className='mx-auto w-11/12 mt-24 max-w-[1000px]  py-10'>
                 <Outlet />
             </div>
         </div>
     </div>
+    
 
 
 /* <div className='relative flex min-h-[calc(100vh-3.5rem)] bg-richblack-400'>

@@ -38,10 +38,10 @@ const ViewCourse = () => {
 
   return (
    <>
-        <div className="relative flex min-h-[calc(100vh-3.5rem)]">
+        <div className="relative mt-16 flex min-h-[calc(100vh-3.5rem)]">
         {showSideBar && <VideoDetailsSideBar setReviewModal={setReviewModal} />}
         <div className="h-[calc(100vh-3.5rem)] flex-1 overflow-auto">
-          <div className="mx-6">
+          <div className="mx-6 ">
        
 
           <button className="mr-4 mt-4 text-[#fff45c]   " onClick={toggleSideBar}>

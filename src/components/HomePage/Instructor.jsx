@@ -17,7 +17,7 @@ export const Instructor = () => {
                 <HighlightText text={"instructor"}/>
             </h1>
             <p className='text-richblack-300 textportion  font-medium text-[16px]  xl:w-[80%] lg:w-[80%] md:w-[80%] sm:w-[80%] w-[100%] '> 
-            Instructors from around the world teach millions of students on StudyNotion. We provide the tools and skills to teach what you love.
+            Instructors from around the world teach millions of students on StudyHub. We provide the tools and skills to teach what you love.
             </p>
 
 

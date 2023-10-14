@@ -58,7 +58,7 @@ export const ContactUsForm = () => {
         }
     },[isSubmitSuccessful,reset])
   return (
-    <div>
+    <div >
         <form onSubmit={handleSubmit(submitContactForm)}>
             <div className='flex flex-col  gap-6'>
                 <div className=' flex gap-5'>

@@ -1,8 +1,12 @@
 import React from 'react' 
 import "./irctc.css";
+import Zoom from 'react-reveal/Zoom';
 
 const Irctc = () => {
   return (
+    <Zoom>
+
+  
     <div className=" place-content-center grid  m-0 h-[100vh] ml-48">
         <svg>
   <circle cx="50" cy="50" r="40" stroke="red" strokeDasharray="78.5 235.5" strokeWidth="3" fill="none" />
@@ -10,6 +14,7 @@ const Irctc = () => {
   <circle cx="50" cy="50" r="20" stroke="green" strokeDasharray="47.1 141.3" strokeWidth="3" fill="none" />
 </svg>
     </div>
+    </Zoom>
   )
 }
 

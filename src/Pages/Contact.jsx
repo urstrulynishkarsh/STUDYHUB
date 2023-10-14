@@ -8,7 +8,7 @@ import ReviewSlider from '../components/common/ReviewSlider'
 const Contact = () => {
   return (
 
-    <div>
+    <div className='mt-24'>
     <div className=' flex lg:flex-row xl:flex-row flex-col xl:mt-0 lg:mt-0 mt-96 gap-5 justify-center items-center mx-auto w-11/12 mb-24 max-w-maxContent'>
         <div className='flex flex-col bg-richblack-800 px-10 gap-y-6 py-10 mt-[-22rem] rounded-lg'>
             <div className='flex flex-row gap-4'>
