@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, Navigate, matchPath ,useLocation} from 'react-router-dom'
-import logo from '../../assets/White & Black Modern Photography Logo/2-removebg-preview.png'
+import logo from '../../assets/White & Black Modern Photography Logo/2-removebg-preview (1).png'
 import {NavbarLinks} from '../../data/navbar-links'
 import { useSelector } from 'react-redux'
 import { AiOutlineClose, AiOutlineMenu, AiOutlineShoppingCart } from 'react-icons/ai'
@@ -76,7 +76,7 @@ export const Navbar = () => {
          <div className="flex  py-3 max-w-maxContent items-center xl:justify-around lg:justify-around md:justify-around justify-between">
         {/* Logo */}
         <Link to="/">
-          <img src={logo} alt="Logo" width={160} height={32} loading="lazy" />
+          <img src={logo} alt="Logo" className='w-32  ' loading="lazy" />
         </Link>
         {/* Navigation links */}
         <nav className="hidden md:block">
