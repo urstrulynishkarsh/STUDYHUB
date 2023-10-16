@@ -67,7 +67,7 @@ const otpTemplate = (otp) => {
 	<body>
 		<div class="container">
 			<a href="https://studyhub70.netlify.app"><img class="logo"
-					src="https://res.cloudinary.com/df8jueddb/image/upload/v1697443347/StudyHub/gy8dsit29n5r3rxn4pge.png" alt="StudyHub"></a>
+					src="https://ibb.co/vhbzCY4" alt="StudyHub"></a>
 			<div class="message">OTP Verification Email</div>
 			<div class="body">
 				<p>Dear User,</p>
