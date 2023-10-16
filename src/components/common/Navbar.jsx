@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, Navigate, matchPath ,useLocation} from 'react-router-dom'
-import logo from '../../assets/Logo/Logo-Full-Light.png'
+import logo from '../../assets/White & Black Modern Photography Logo/2-removebg-preview.png'
 import {NavbarLinks} from '../../data/navbar-links'
 import { useSelector } from 'react-redux'
 import { AiOutlineClose, AiOutlineMenu, AiOutlineShoppingCart } from 'react-icons/ai'

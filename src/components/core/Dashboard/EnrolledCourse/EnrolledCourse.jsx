@@ -22,8 +22,8 @@ const EnrolledCourse = () => {
         getEnrolledCourses();
     },[])
   return (
-    <>
-    <div className="text-3xl text-richblack-50">Enrolled Courses</div>
+    <div className='h-[100vh]'>
+    <div className="text-3xl  text-richblack-50">Enrolled Courses</div>
     {!enrolledCourses ? (
       <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
         <div className="spinner"></div>
@@ -84,7 +84,7 @@ const EnrolledCourse = () => {
         ))}
       </div>
     )}
-  </>
+  </div>
   )
 }
 

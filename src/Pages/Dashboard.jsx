@@ -25,8 +25,8 @@ const Dashboard = () => {
    
    {<Sidebar />}
 
-        <div className=' bg-black w-11/12'>
-            <div className='mx-auto w-11/12 mt-24 max-w-[1000px]  py-10'>
+        <div className=' bg-black h-[100%] w-11/12'>
+            <div className='mx-auto w-11/12  mt-24 max-w-[1000px]  py-10'>
                 <Outlet />
             </div>
         </div>
