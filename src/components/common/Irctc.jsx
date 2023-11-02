@@ -5,9 +5,7 @@ import Zoom from 'react-reveal/Zoom';
 const Irctc = () => {
   return (
     <Zoom>
-
-  
-    <div className=" place-content-center grid  m-0 h-[100vh] ml-48">
+    <div className="place-content-center grid  m-0 h-[100vh] ml-48">
         <svg>
   <circle cx="50" cy="50" r="40" stroke="red" strokeDasharray="78.5 235.5" strokeWidth="3" fill="none" />
   <circle cx="50" cy="50" r="30" stroke="blue" strokeDasharray="62.8 188.8" strokeWidth="3" fill="none" />

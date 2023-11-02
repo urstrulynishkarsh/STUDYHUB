@@ -63,15 +63,24 @@ export async function buyCourse(token, courses, userDetails, navigate, dispatch)
                 sendPaymentSuccessEmail(response, orderResponse.data.message.amount,token );
                 //verifyPayment
                 verifyPayment({...response, courses}, token, navigate, dispatch);
+            },
+             // Handle payment failure
+             theme: {
+                color: "#F37254" // Customize the color
             }
         }
-        //miss hogya tha 
+        // //miss hogya tha 
+
+
         const paymentObject = new window.Razorpay(options);
         paymentObject.open();
         paymentObject.on("payment.failed", function(response) {
             toast.error("oops, payment failed");
             console.log(response.error);
         })
+
+
+
 
     }
     catch(error) {
