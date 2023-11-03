@@ -4,59 +4,51 @@ import { CTAButton } from '../HomePage/CTAButton';
 import CountryCode from '../../data/countrycode.json'
 import { ContactUs } from '../../services/operations/authAPI';
 import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 export const ContactUsForm = () => {
-    const [loading,setLoading]=useState(false);
-    const dispatch=useDispatch();
-
-
-    const {register,
-        handleSubmit,
-        reset,
-        formState: { errors,isSubmitSuccessful }
+    const [loading, setLoading] = useState(false);
+    const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
+  
+    const {
+      register,
+      handleSubmit,
+      reset,
+      formState: { errors },
     } = useForm();
-
-    // const submitContactForm=async(data)=>{
-    //     console.log("Logging Data",data)
-    //     try{
-    //         setLoading(true);
-    //         // const response=a
-    //         const response={status:"OK"};
-    //         console.log("Logging response",response);
-    //         setLoading(false);
-
-    //     }catch(error){
-    //         console.log("Error: ",error.message);
-    //         setLoading(false);
-
-    //     }
-
-    // }
-
-
+  
     const submitContactForm = async (data) => {
-        console.log("Logging Data", data);
-      
- 
-          dispatch(ContactUs(data));
-      
-      
-      };
-
-
-    
-    useEffect(()=>{
-        if(isSubmitSuccessful){
-            reset({
-                firstName:"",
-                lastName:"",
-                email:"",
-                countryCode:"",
-                phoneNumber:"",
-                message:"",
-            })
+      if (loading) return;
+      setLoading(true);
+  
+      try {
+        // Make an API request to send the form data
+        const apiUrl = `${process.env.REACT_APP_BASE_URL}/contactUs`;
+        const response = await axios.post(apiUrl, data);
+  
+        // Handle API response, e.g., show success message
+        if (response.status === 200) {
+          setIsSubmitSuccessful(true);
+          toast.success("Our Team Will Contact Soon")
+          reset(); // Reset the form
+        } else {
+          // Handle API errors
+          console.error('API request failed');
         }
-    },[isSubmitSuccessful,reset])
+      } catch (error) {
+        // Handle API request error
+        console.error('API request error:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    useEffect(() => {
+      if (isSubmitSuccessful) {
+        setIsSubmitSuccessful(false);
+      }
+    }, [isSubmitSuccessful]);
   return (
     <div >
         <form onSubmit={handleSubmit(submitContactForm)}>
@@ -133,14 +125,15 @@ export const ContactUsForm = () => {
                             id='countryCode'
                             
                             className='text-richblack-800 w-[100px] h-10 rounded-md'
-                            {...register("countryCode",{required:true})}
+                            {...register('countryCode', { required: true })}
                             >
                             {
                                 CountryCode.map((element,index)=>{
                                     return(
                                         
-                                        <option  key={index} value={element.code}>
+                                        <option  key={index} value={element.code} >
                                             {element.code}-{element.country}
+                                            
                                         </option>
                                     
                                     )

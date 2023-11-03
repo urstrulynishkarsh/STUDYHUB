@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
 const contactSchema = new mongoose.Schema({
-	firstName: {
+		firstName: {
 		 type: String,
 		  required: true,
-		  trim:true,
+		  trim:true
 		 },
 		 lastName: {
 			type: String,
@@ -30,7 +30,7 @@ const contactSchema = new mongoose.Schema({
 	createdAt:{
         type:Date,
         default:Date.now,
-    },
+    }
   }
 );
 
