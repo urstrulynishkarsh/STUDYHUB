@@ -66,7 +66,7 @@ export const ContactUsForm = () => {
                      {...register("firstName", { required: true, maxLength: 20 })} />
                      {
                         errors.firstName && (
-                            <span>
+                            <span className='text-[red]'>
                                 Please enter valid first name
                             </span>
                         )
@@ -84,7 +84,7 @@ export const ContactUsForm = () => {
                      {...register("lastName", { required: true, maxLength: 15 })} />
                      {
                         errors.lastName && (
-                            <span>
+                            <span className='text-[red]'>
                                 Please enter Your Last Name
                             </span>
                         )
@@ -105,7 +105,7 @@ export const ContactUsForm = () => {
                 {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
                 />
                 {errors.email && (
-                <span>
+                <span className='text-[red]'>
                 Please enter a valid email address.
                 </span>
                 )}
@@ -164,7 +164,7 @@ export const ContactUsForm = () => {
 
                     </div>
                     {errors.phoneNumber && (
-                <span>
+                <span className='text-[red]'>
                 Please enter a valid phoneNumber.
                 </span>
                 )}
@@ -185,7 +185,7 @@ export const ContactUsForm = () => {
                          />
                          {
                             errors.message &&(
-                                <span>
+                                <span className='text-[red]'>
                                     Please Enter Your Message
                                 </span>
                             )
