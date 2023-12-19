@@ -8,132 +8,6 @@ import RZPLOGO from '../../assets/logos/png/logo-no-background.png'
 
 const {COURSE_PAYMENT_API,COURSE_VERIFY_API,SEND_PAYMENT_SUCCESS_EMAIL_API}=studentEndpoints;
 
-// function loadScript(src){
-//     return new Promise((resolve)=>{
-//         const script=document.createElement("script");
-//         script.src=src;
-//         script.onload=()=>{
-//             resolve(true);
-//         }
-//         script.onerror=()=>{
-//             resolve(false);
-//         }
-//         document.body.appendChild(script);
-//     })
-// }
-
-
-// export async function buyCourse(token, courses, userDetails, navigate, dispatch) {
-//     const toastId = toast.loading("Loading...");
-//     try{
-//         //load the script
-//         const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
-
-//         if(!res) {
-//             toast.error("RazorPay SDK failed to load");
-//             return;
-//         }
-
-//         //initiate the order
-//         const orderResponse = await apiConnector("POST", COURSE_PAYMENT_API, 
-//                                 {courses},
-//                                 {
-//                                     Authorization: `Bearer ${token}`,
-//                                 })
-
-//         if(!orderResponse.data.success) {
-//             throw new Error(orderResponse.data.message);
-//         }
-//         console.log("PRINTING orderResponse", orderResponse);
-//         //options
-//         const options = {
-//             key: process.env.RAZORPAY_KEY,
-//             currency: orderResponse.data.message.currency,
-//             amount: `${orderResponse.data.message.amount}`,
-//             order_id:orderResponse.data.message.id,
-//             name:"StudyHub",
-//             description: "Thank You for Purchasing the Course",
-//             image:RZPLOGO,
-//             prefill: {
-//                 name:`${userDetails.firstName}`,
-//                 email:userDetails.email
-//             },
-//             handler: function(response) {
-//                 //send successful wala mail
-//                 sendPaymentSuccessEmail(response, orderResponse.data.message.amount,token );
-//                 //verifyPayment
-//                 verifyPayment({...response, courses}, token, navigate, dispatch);
-//             },
-//              // Handle payment failure
-//              theme: {
-//                 color: "#F37254" // Customize the color
-//             }
-//         }
-//         // //miss hogya tha 
-
-
-//         const paymentObject = new window.Razorpay(options);
-//         paymentObject.open();
-//         paymentObject.on("payment.failed", function(response) {
-//             toast.error("oops, payment failed");
-//             console.log(response.error);
-//         })
-
-
-
-
-//     }
-//     catch(error) {
-//         console.log("PAYMENT API ERROR.....", error);
-//         toast.error("Could not make Payment");
-//     }
-//     toast.dismiss(toastId);
-// }
-
-// async function sendPaymentSuccessEmail(response, amount, token) {
-//     try{
-//         await apiConnector("POST", SEND_PAYMENT_SUCCESS_EMAIL_API, {
-//             orderId: response.razorpay_order_id,
-//             paymentId: response.razorpay_payment_id,
-//             amount,
-//         },{
-//             Authorization: `Bearer ${token}`
-//         })
-//     }
-//     catch(error) {
-//         console.log("PAYMENT SUCCESS EMAIL ERROR....", error);
-//     }
-// }
-
-// //verify payment
-// async function verifyPayment(bodyData, token, navigate, dispatch) {
-//     const toastId = toast.loading("Verifying Payment....");
-//     dispatch(setPaymentLoading(true));
-//     try{
-//         const response  = await apiConnector("POST", COURSE_VERIFY_API, bodyData, {
-//             Authorization:`Bearer ${token}`,
-//         })
-
-//         if(!response.data.success) {
-//             throw new Error(response.data.message);
-//         }
-//         toast.success("payment Successful, ypou are addded to the course");
-//         navigate("/dashboard/enrolled-courses");
-//         dispatch(resetCart());
-//     }   
-//     catch(error) {
-//         console.log("PAYMENT VERIFY ERROR....", error);
-//         toast.error("Could not verify Payment");
-//     }
-//     toast.dismiss(toastId);
-//     dispatch(setPaymentLoading(false));
-// }
-
-
-
-
-
-
 
 // Load the Razorpay SDK from the CDN
 function loadScript(src) {
@@ -162,6 +36,7 @@ function loadScript(src) {
     try {
       // Loading the script of Razorpay SDK
       const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js")
+      console.log("hello script")
   
       if (!res) {
         toast.error(
@@ -189,11 +64,11 @@ function loadScript(src) {
   
       // Opening the Razorpay SDK
       const options = {
-        key: process.env.RAZORPAY_KEY,
+        key: "rzp_test_HLDnBiwvJDvBVL",
         currency: orderResponse.data.message.currency,
         amount: `${orderResponse.data.message.amount}`,
         order_id: orderResponse.data.message.id,
-        name: "StudyNotion",
+        name: "StudyHub",
         description: "Thank you for Purchasing the Course.",
         image: RZPLOGO,
         prefill: {
@@ -204,6 +79,42 @@ function loadScript(src) {
           sendPaymentSuccessEmail(response, orderResponse.data.message.amount, token)
           verifyPayment({ ...response, courses }, token, navigate, dispatch)
         },
+        // modal: {
+        //     confirm_close: true, // this is set to true, if we want confirmation when clicked on cross button.
+        //     // This function is executed when checkout modal is closed
+        //     // There can be 3 reasons when this modal is closed.
+        //     ondismiss: async (reason) => {
+        //       const {
+        //         reason: paymentReason, field, step, code,
+        //       } = reason && reason.error ? reason.error : {};
+        //       // Reason 1 - when payment is cancelled. It can happend when we click cross icon or cancel any payment explicitly. 
+        //       if (reason === undefined) {
+        //         console.log('cancelled');
+        //         // handlePayment('Cancelled');
+        //       } 
+        //       // Reason 2 - When modal is auto closed because of time out
+        //       else if (reason === 'timeout') {
+        //         console.log('timedout');
+        //         // handlePayment('timedout');
+        //       } 
+        //       // Reason 3 - When payment gets failed.
+        //       else {
+        //         console.log('failed');
+        //         // handlePayment('failed', {
+        //         //   paymentReason, field, step, code,
+        //         // });
+        //       }
+        //     },
+        //   },
+        //   // This property allows to enble/disable retries.
+        //   // This is enabled true by default. 
+        //   retry: {
+        //     enabled: false,
+        //   },
+        //   timeout: 900, // Time limit in Seconds
+          theme: {
+            color: '#eccff4', // Custom color for your checkout modal.
+          },
       }
       const paymentObject = new window.Razorpay(options)
   
