@@ -152,6 +152,7 @@ export const Navbar = () => {
               )}
             </Link>
           )}
+          {/* hello */}
           {token === null && (
             <Link to="/login">
               <button className=" lg:block xl:block md:block hidden rounded-[8px] border border-richblack-700 bg-[#6674cc] px-[12px] py-[8px] text-[#fff]">
